@@ -1,0 +1,28 @@
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <a class="navbar-brand ps-2" style="cursor:pointer;"><b>TODO</b></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active" *ngIf="authService.verified">
+                <a class="nav-link" [routerLink]="['/tasks']">Tasks</a>
+            </li>
+            <li class="nav-item" *ngIf="authService.verified">
+                <a class="nav-link" routerLink='/done'>Done</a>
+            </li>
+            <li class="nav-item" *ngIf="!authService.verified">
+                <a class="nav-link" [routerLink]="['/signup']">SignUp</a>
+            </li>
+            <li class="nav-item" *ngIf="!authService.verified">
+                <a class="nav-link" [routerLink]="['/login']">Login</a>
+            </li>
+        </ul>
+        <ul class="navbar-nav ms-auto pe-3">
+            <li class="nav-item" *ngIf="authService.verified">
+                <button class="btn btn-danger" type="submit" (click)="logout()">Logout</button>
+            </li>
+        </ul>
+    </div>
+</nav>

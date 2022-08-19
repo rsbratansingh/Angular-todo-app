@@ -1,0 +1,38 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12 mt-4 col-md-8 ">
+            <div class="card bg-light justify-content-center">
+                <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="card-body">
+                    <div class="form-group mt-2">
+                        <label for="login">Email</label>
+                        <input type="email" id="email" name="email" class="form-control" formControlName="email">
+                        <span *ngIf="!loginForm.get('email').valid && loginForm.get('email').touched"
+                            class="help-block">Please enter a valid Email</span>
+                    </div>
+                    <div class="form-group mt-2">
+                        <label for="password">Password</label>
+                        <input type="password" name="password" id="password" class="form-control"
+                            formControlName="password">
+                        <span *ngIf="!loginForm.get('password').valid && loginForm.get('password').touched"
+                            class="help-block">Please enter a valid Password</span>
+                    </div>
+                    <button class=" mt-2 btn btn-primary"type="ngSubmit">Login</button>
+                    <div class="form-group mt-2">
+                        <a routerLink="/signup" class="nav-link" style="color:blue;">Need Account? Register</a>
+                        <a routerLink="/forgot" class="nav-link" style="color:blue;">Forgot Password?</a>
+                    </div>
+                    <div class="row mt-2">
+                        <a style="text-decoration:none;cursor:pointer" (click)="signinWithGoogle()">
+                            <div class="card shadow ">
+                                <div class="card-body">
+                                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRB34UmVsdyenubhXd_mzMBfmYjNrep3u9lvOPVNa1yPi3GVZ3z3ZZ0M2bBDsKGvuM4S8Q&usqp=CAU"
+                                        alt="" style="width:60px;">Sign In with Google
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

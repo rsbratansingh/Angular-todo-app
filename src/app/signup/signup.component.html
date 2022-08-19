@@ -1,0 +1,36 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-10 mt-4 col-md-8 col-sm-offset-1 col-md-offset-2">
+            <div class="card bg-light justify-content-center">
+                <form [formGroup]="signupForm" (ngSubmit)="verifyEmail()" class="card-body">
+                    <div class="form-group mt-2">
+                        <label for="name">Name</label>
+                        <input type="text" id="nameId" name="name" class="form-control" formControlName="name">
+                        <span class="help-block"*ngIf="!signupForm.get('name').valid && signupForm.get('name').touched">Please enter Name</span>
+                    </div> 
+                    <div class="form-group mt-2">
+                        <label for="email">Email</label>
+                        <input type="email" id="emailId" name="email" class="form-control" formControlName="email">
+                        <span class="help-block" *ngIf="!signupForm.get('email').valid && signupForm.get('email').touched">Please enter a valid
+                            Email</span>
+                    </div>
+                    <div class="form-group mt-2">
+                        <label for="password">Password</label>
+                        <input type="password" name="password" class="form-control" formControlName="password">
+                        <span class="help-block"*ngIf="!signupForm.get('password').valid && signupForm.get('password').touched">Please enter Password</span>
+                    </div>
+                    <div class="form-group mt-2">
+                        <label for="confirmPassword">Confirm Password</label>
+                        <input type="password" name="confirmPassword" class="form-control"
+                            formControlName="confirmPassword">
+                        <span class="help-block"
+                            *ngIf="signupForm.get('password').touched && signupForm.get('confirmPassword').touched && signupForm.get('password').value !== signupForm.get('confirmPassword').value">Please
+                            enter Confirm Password same as Password</span>
+                    </div>
+                    <button class="btn btn-success mt-2"type="ngSubmit">Register</button>
+                    <br>
+                    <a routerLink="/login" class="nav-link" style="cursor:pointer;color:blue;">Have an account?<br>Login</a>
+                </form>
+            </div>
+        </div>
+    </div>
